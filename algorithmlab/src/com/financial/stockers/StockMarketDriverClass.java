@@ -7,12 +7,12 @@ public class StockMarketDriverClass {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Stock Market Application !! ");
 		System.out.println("Enter the number of companies whose stock price is to be entered");
-	    Scanner scanner = new Scanner(System.in);
-		int numberOfCompanies =  scanner.nextInt();
+		Scanner scanner = new Scanner(System.in);
+		int numberOfCompanies = scanner.nextInt();
 		StockPriceService stockPriceService = new StockPriceService(numberOfCompanies);
 		stockPriceService.getStockInformation();
 		int choice = 0;
-		while(true){
+		while (true) {
 			System.out.println("------------------------------");
 			System.out.println("1. Display the companies stock prices in ascending order");
 			System.out.println("2. Display the companies stock prices in descending order");
@@ -22,9 +22,9 @@ public class StockMarketDriverClass {
 			System.out.println("0. Exit application");
 			System.out.println("------------------------------");
 			System.out.println("Enter you choice !");
-			choice =  scanner.nextInt();
+			choice = scanner.nextInt();
 			System.out.println("------------------------------");
-			switch(choice) {
+			switch (choice) {
 			case 1:
 				System.out.println("Stock prices in ascending order");
 				stockPriceService.displayStockPriceAscending();
@@ -34,20 +34,21 @@ public class StockMarketDriverClass {
 				stockPriceService.displayStockPriceDescending();
 				break;
 			case 3:
-				System.out.println("Total number of Companies whose share price rose today " + stockPriceService.numberOfSharePriceIncreased());
+				System.out.println("Total number of Companies whose share price rose today "
+						+ stockPriceService.numberOfSharePriceIncreased());
 				break;
 			case 4:
-				System.out.println("Total number of Companies whose share price declined today " + stockPriceService.numberOfSharePriceDecreased());
+				System.out.println("Total number of Companies whose share price declined today "
+						+ stockPriceService.numberOfSharePriceDecreased());
 				break;
 			case 5:
 				System.out.println("Enter the share price to be searched :");
-				double searchPrice =  scanner.nextDouble();
+				double searchPrice = scanner.nextDouble();
 				boolean returnValue = stockPriceService.searchPrice(searchPrice);
 				if (returnValue == true) {
-					System.out.println("Stock of value " + searchPrice + " is present " );
-				}
-				else {
-					System.out.println("Search share price " + searchPrice + " not found " );
+					System.out.println("Stock of value " + searchPrice + " is present ");
+				} else {
+					System.out.println("Search share price " + searchPrice + " not found ");
 				}
 				break;
 			case 0:
@@ -58,5 +59,6 @@ public class StockMarketDriverClass {
 			default:
 				System.out.println("Give valid Input!!");
 			}
+		}
 	}
-	}}
+}
